@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://b8yntuow1515c"]
+
+[ext_resource type="PackedScene" uid="uid://c0vxvou1i8y5k" path="res://person_v_1.tscn" id="1_vuebc"]
+[ext_resource type="Texture2D" uid="uid://bo082j6cxkv1u" path="res://assets/tile002.png" id="2_0b0hh"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_uxjnc"]
+radius = 24.0
+height = 72.0
+
+[node name="OfficePerson" instance=ExtResource("1_vuebc")]
+
+[node name="Sprite2D" parent="." index="0"]
+rotation = 3.14159
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_0b0hh")
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(2.85714, -5.71428)
+shape = SubResource("CapsuleShape2D_uxjnc")

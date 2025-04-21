@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://vl26bu8g3s3a"]
+
+[ext_resource type="PackedScene" uid="uid://c0vxvou1i8y5k" path="res://person_v_1.tscn" id="1_aidny"]
+[ext_resource type="Texture2D" uid="uid://bu2g806swv45k" path="res://assets/child.png" id="2_jemat"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wsbt6"]
+radius = 16.0
+height = 40.0
+
+[node name="Child" instance=ExtResource("1_aidny")]
+speed = 60
+
+[node name="Sprite2D" parent="." index="0"]
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("2_jemat")
+
+[node name="CollisionShape2D" parent="." index="1"]
+shape = SubResource("CapsuleShape2D_wsbt6")

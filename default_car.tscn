@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://ylw2whhn84dl"]
+
+[ext_resource type="PackedScene" uid="uid://dbaytthmlmbo0" path="res://car_base.tscn" id="1_jw4iq"]
+
+[node name="DefaultCar" instance=ExtResource("1_jw4iq")]
+max_speed = 120.0
+friction = 0.09
+acceleration = 0.02

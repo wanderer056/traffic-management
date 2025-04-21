@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://cfdpjqvw04yjs"]
+
+[ext_resource type="PackedScene" uid="uid://dbaytthmlmbo0" path="res://car_base.tscn" id="1_ln6hr"]
+[ext_resource type="Texture2D" uid="uid://bwe5jf5bb2adh" path="res://assets/race_car.png" id="2_6rj3g"]
+
+[node name="FastCar" instance=ExtResource("1_ln6hr")]
+max_speed = 150.0
+friction = 0.12
+acceleration = 0.01
+steer_factor = 10
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_6rj3g")

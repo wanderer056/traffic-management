@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://dbjn2dd6y3qnf"]
+
+[ext_resource type="PackedScene" uid="uid://c0vxvou1i8y5k" path="res://person_v_1.tscn" id="1_vcgvw"]
+[ext_resource type="Texture2D" uid="uid://ckw8guisdoh04" path="res://assets/girl-2.png" id="2_f8kp0"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rrmc1"]
+radius = 24.0
+height = 56.0
+
+[node name="Girl2" instance=ExtResource("1_vcgvw")]
+speed = 70
+
+[node name="Sprite2D" parent="." index="0"]
+rotation = 3.14159
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_f8kp0")
+
+[node name="CollisionShape2D" parent="." index="1"]
+shape = SubResource("CapsuleShape2D_rrmc1")

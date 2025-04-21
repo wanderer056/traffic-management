@@ -1,0 +1,43 @@
+[gd_scene load_steps=3 format=3 uid="uid://cglabsukvmiip"]
+
+[ext_resource type="Script" path="res://traffic_light.gd" id="1_sxe2e"]
+[ext_resource type="Texture2D" uid="uid://mcwo7do6s5bn" path="res://assets/pngwing.com.png" id="2_01yi8"]
+
+[node name="TrafficLight" type="Node2D"]
+script = ExtResource("1_sxe2e")
+
+[node name="TrafficLightContainer" type="Sprite2D" parent="."]
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("2_01yi8")
+metadata/_edit_group_ = true
+
+[node name="RedLight" type="ColorRect" parent="TrafficLightContainer"]
+show_behind_parent = true
+offset_left = -186.0
+offset_top = -481.0
+offset_right = 172.0
+offset_bottom = -133.0
+color = Color(1, 0, 0, 0.211765)
+
+[node name="YellowLight" type="ColorRect" parent="TrafficLightContainer"]
+modulate = Color(1, 1, 1, 0.211765)
+show_behind_parent = true
+offset_left = -186.0
+offset_top = -123.0
+offset_right = 172.0
+offset_bottom = 225.0
+color = Color(1, 1, 0, 1)
+
+[node name="GreenLight" type="ColorRect" parent="TrafficLightContainer"]
+modulate = Color(1, 1, 1, 0.211765)
+show_behind_parent = true
+offset_left = -186.0
+offset_top = 219.0
+offset_right = 172.0
+offset_bottom = 567.0
+color = Color(0, 1, 0, 1)
+
+[node name="LightTimer" type="Timer" parent="."]
+wait_time = 10.0
+
+[connection signal="timeout" from="LightTimer" to="." method="_on_light_timer_timeout"]

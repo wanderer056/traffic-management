@@ -1,0 +1,79 @@
+[gd_scene load_steps=12 format=3 uid="uid://c1761aa4wdn7t"]
+
+[ext_resource type="Texture2D" uid="uid://bkbc53fjuhe" path="res://assets/ablood-removebg-preview.png" id="1_51rc0"]
+[ext_resource type="Script" path="res://Persons/dead_man.gd" id="1_s10fi"]
+[ext_resource type="Texture2D" uid="uid://ll3ylypmj702" path="res://assets/character_brown_white.png" id="1_vip6c"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d00lc"]
+atlas = ExtResource("1_51rc0")
+region = Rect2(0, 0, 52, 71)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_43d8s"]
+atlas = ExtResource("1_51rc0")
+region = Rect2(52, 0, 52, 71)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iftqy"]
+atlas = ExtResource("1_51rc0")
+region = Rect2(104, 0, 52, 71)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sgmj2"]
+atlas = ExtResource("1_51rc0")
+region = Rect2(156, 0, 52, 71)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bg25y"]
+atlas = ExtResource("1_51rc0")
+region = Rect2(208, 0, 52, 71)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_upxi3"]
+atlas = ExtResource("1_51rc0")
+region = Rect2(260, 0, 52, 71)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_shj86"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d00lc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_43d8s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iftqy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sgmj2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bg25y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_upxi3")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bg1kb"]
+radius = 37.0135
+
+[node name="DeadMan" type="Node2D"]
+script = ExtResource("1_s10fi")
+
+[node name="Body" type="Sprite2D" parent="."]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_vip6c")
+
+[node name="Blood" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_shj86")
+frame = 5
+frame_progress = 1.0
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 131072
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_bg1kb")
+
+[connection signal="animation_finished" from="Blood" to="." method="_on_blood_animation_finished"]

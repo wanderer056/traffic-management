@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=3 uid="uid://dq4q782ewbonc"]
+
+[ext_resource type="Script" path="res://traffic_manager.gd" id="1_jnytm"]
+[ext_resource type="PackedScene" uid="uid://cglabsukvmiip" path="res://traffic_light.tscn" id="2_y1cnq"]
+
+[node name="TrafficManager" type="Node"]
+script = ExtResource("1_jnytm")
+
+[node name="TrafficLight" parent="." groups=["traffic_lights"] instance=ExtResource("2_y1cnq")]
+position = Vector2(175, 173)
+
+[node name="TrafficLight2" parent="." groups=["traffic_lights"] instance=ExtResource("2_y1cnq")]
+position = Vector2(1364, 179)
+
+[node name="TrafficLight3" parent="." groups=["traffic_lights"] instance=ExtResource("2_y1cnq")]
+position = Vector2(1362, 1220)
+
+[node name="TrafficLight4" parent="." groups=["traffic_lights"] instance=ExtResource("2_y1cnq")]
+position = Vector2(172, 1203)
+
+[node name="LightTimer" type="Timer" parent="."]
+wait_time = 7.0
+one_shot = true
+autostart = true
+
+[node name="YellowTimer" type="Timer" parent="."]
+wait_time = 4.0
+one_shot = true
+
+[connection signal="timeout" from="LightTimer" to="." method="_on_light_timer_timeout"]
+[connection signal="timeout" from="YellowTimer" to="." method="_on_yellow_timer_timeout"]
