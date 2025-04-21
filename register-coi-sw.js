@@ -1,10 +1,11 @@
 // register-coi-sw.js
 
 if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('/coi-serviceworker.js').then((registration) => {
+  const basePath = window.location.pathname.replace(/\/[^\/]*$/, '/') + 'coi-serviceworker.js';
+
+  navigator.serviceWorker.register(basePath).then((registration) => {
     console.log('COOP/COEP Service Worker registered');
 
-    // Force reload once the SW takes control
     if (registration.installing) {
       registration.installing.addEventListener('statechange', function (e) {
         if (e.target.state === 'activated') {
@@ -16,4 +17,3 @@ if ('serviceWorker' in navigator) {
     console.error('Service Worker registration failed:', error);
   });
 }
-
